@@ -176,6 +176,10 @@ WORDLISTS () {
 	echo -e ${BLUE}"[WORDLISTS]" ${RED}"SecLists installation in progress ...";
 	cd $TOOLS_DIRECTORY && git clone https://github.com/danielmiessler/SecLists.git > /dev/null 2>&1;
 	echo -e ${BLUE}"[WORDLISTS]" ${GREEN}"SecLists installation is done !"; echo "";
+	#OneForAll by Six2dez
+	echo -e ${BLUE}"[WORDLISTS]" ${RED}"OneforAll download in progress ...";
+	cd $TOOLS_DIRECTORY && wget https://raw.githubusercontent.com/six2dez/OneListForAll/main/onelistforallmicro.txt > /dev/null 2>&1;
+	echo -e ${BLUE}"[WORDLISTS]" ${GREEN}"OneforAll download is done !"; echo "";
 }
 
 VULNS_XSS () {
@@ -191,6 +195,10 @@ VULNS_XSS () {
 	echo -e ${BLUE}"[VULNERABILITY - XSS]" ${RED}"kxss installation in progress ...";
 	go get -u github.com/tomnomnom/hacks/kxss > /dev/null 2>&1 && ln -s ~/go/bin/kxss /usr/local/bin/;
 	echo -e ${BLUE}"[VULNERABILITY - XSS]" ${GREEN}"kxss installation is done !"; echo "";
+	#Gxss
+	echo -e ${BLUE}"[VULNERABILITY - XSS]" ${RED}"Gxss installation in progress ...";
+	go install github.com/KathanP19/Gxss@latest > /dev/null 2>&1 && ln -s ~/go/bin/Gxss /usr/local/bin/;
+	echo -e ${BLUE}"[VULNERABILITY - XSS]" ${GREEN}"Gxss installation is done !"; echo "";
 }
 
 VULNS_SQLI () {
