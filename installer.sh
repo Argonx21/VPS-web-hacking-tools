@@ -43,7 +43,7 @@ unset OS
 SUBDOMAINS_ENUMERATION () {
 	#Subfinder
 	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${RED}"Subfinder installation in progress ...";
-	GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder > /dev/null 2>&1 && ln -s ~/go/bin/subfinder /usr/local/bin/;
+	GO111MODULE=on go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest > /dev/null 2>&1 && ln -s ~/go/bin/subfinder /usr/local/bin/;
 	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${GREEN}"Subfinder installation is done !"; echo "";
 	#Assetfinder
 	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${RED}"Assetfinder installation in progress ...";
@@ -96,7 +96,7 @@ VISUAL_RECON () {
 HTTP_PROBE () {
 	#httpx
 	echo -e ${BLUE}"[HTTP PROBE]" ${RED}"httpx installation in progress ...";
-	GO111MODULE=on go get -v github.com/projectdiscovery/httpx/cmd/httpx > /dev/null 2>&1 && ln -s ~/go/bin/httpx /usr/local/bin/;
+	GO111MODULE=on go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest > /dev/null 2>&1 && ln -s ~/go/bin/httpx /usr/local/bin/;
 	echo -e ${BLUE}"[HTTP PROBE]" ${GREEN}"Httpx installation is done !"; echo "";
 	#httprobe
 	echo -e ${BLUE}"[HTTP PROBE]" ${RED}"httprobe installation in progress ...";
@@ -173,13 +173,9 @@ API_TOOLS () {
 
 WORDLISTS () {
 	#SecLists
-	echo -e ${BLUE}"[WORDLISTS]" ${RED}"SecLists installation in progress ...";
-	cd $TOOLS_DIRECTORY && git clone https://github.com/danielmiessler/SecLists.git > /dev/null 2>&1;
-	echo -e ${BLUE}"[WORDLISTS]" ${GREEN}"SecLists installation is done !"; echo "";
-	#OneForAll by Six2dez
-	echo -e ${BLUE}"[WORDLISTS]" ${RED}"OneforAll download in progress ...";
-	cd $TOOLS_DIRECTORY && wget https://raw.githubusercontent.com/six2dez/OneListForAll/main/onelistforallmicro.txt > /dev/null 2>&1;
-	echo -e ${BLUE}"[WORDLISTS]" ${GREEN}"OneforAll download is done !"; echo "";
+	echo -e ${BLUE}"[WORDLISTS]" ${RED}"Wordlist setup in progress ...";
+	cd $TOOLS_DIRECTORY && wget https://github.com/Argonx21/Personal-contents-Payloads-wordlist-/blob/main/Wordlist.zip > /dev/null 2>&1;
+	echo -e ${BLUE}"[WORDLISTS]" ${GREEN}"Wordlist setup is done !"; echo "";
 }
 
 VULNS_XSS () {
@@ -188,9 +184,9 @@ VULNS_XSS () {
 	GO111MODULE=on go get -v github.com/hahwul/dalfox/v2 > /dev/null 2>&1 && ln -s ~/go/bin/dalfox /usr/local/bin/;
 	echo -e ${BLUE}"[VULNERABILITY - XSS]" ${GREEN}"Dalfox installation is done !"; echo "";
 	#XSStrike
-	echo -e ${BLUE}"[VULNERABILITY - XSS]" ${RED}"XSStrike installation in progress ...";
-	cd $TOOLS_DIRECTORY && git clone https://github.com/s0md3v/XSStrike > /dev/null 2>&1 && cd XSStrike && pip3 install -r requirements.txt > /dev/null 2>&1;
-	echo -e ${BLUE}"[VULNERABILITY - XSS]" ${GREEN}"XSStrike installation is done !"; echo "";
+	#echo -e ${BLUE}"[VULNERABILITY - XSS]" ${RED}"XSStrike installation in progress ...";
+	#cd $TOOLS_DIRECTORY && git clone https://github.com/s0md3v/XSStrike > /dev/null 2>&1 && cd XSStrike && pip3 install -r requirements.txt > /dev/null 2>&1;
+	#echo -e ${BLUE}"[VULNERABILITY - XSS]" ${GREEN}"XSStrike installation is done !"; echo "";
 	#kxss
 	echo -e ${BLUE}"[VULNERABILITY - XSS]" ${RED}"kxss installation in progress ...";
 	go get -u github.com/tomnomnom/hacks/kxss > /dev/null 2>&1 && ln -s ~/go/bin/kxss /usr/local/bin/;
@@ -207,9 +203,9 @@ VULNS_SQLI () {
 	apt-get install -y sqlmap > /dev/null 2>&1
 	echo -e ${BLUE}"[VULNERABILITY - SQL Injection]" ${GREEN}"SQLMap installation is done !"; echo "";
 	#NoSQLMap
-	echo -e ${BLUE}"[VULNERABILITY - SQL Injection]" ${RED}"NoSQLMap installation in progress ...";
-	cd $TOOLS_DIRECTORY && git clone https://github.com/codingo/NoSQLMap.git > /dev/null 2>&1 && cd NoSQLMap && python setup.py install > /dev/null 2>&1;
-	echo -e ${BLUE}"[VULNERABILITY - SQL Injection]" ${GREEN}"NoSQLMap installation is done !"; echo "";
+	#echo -e ${BLUE}"[VULNERABILITY - SQL Injection]" ${RED}"NoSQLMap installation in progress ...";
+	#cd $TOOLS_DIRECTORY && git clone https://github.com/codingo/NoSQLMap.git > /dev/null 2>&1 && cd NoSQLMap && python setup.py install > /dev/null 2>&1;
+	#echo -e ${BLUE}"[VULNERABILITY - SQL Injection]" ${GREEN}"NoSQLMap installation is done !"; echo "";
 }
 
 CMS_SCANNER () {
@@ -233,11 +229,6 @@ VULNS_SCANNER () {
 	GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei > /dev/null 2>&1 && ln -s ~/go/bin/nuclei /usr/local/bin/;
 	nuclei -update-templates > /dev/null 2>&1
 	echo -e ${BLUE}"[VULNERABILITY SCANNER]" ${GREEN}"Nuclei installation is done !"; echo "";
-	#Jaeles
-	echo -e ${BLUE}"[VULNERABILITY SCANNER]" ${RED}"Jaeles installation in progress ...";
-	GO111MODULE=on go get github.com/jaeles-project/jaeles  > /dev/null 2>&1 && ln -s ~/go/bin/jaeles /usr/local/bin/;
-	cd $TOOLS_DIRECTORY && git clone https://github.com/jaeles-project/jaeles-signatures.git > /dev/null 2>&1;
-	echo -e ${BLUE}"[VULNERABILITY SCANNER]" ${GREEN}"Jaeles installation is done !"; echo "";
 }
 
 JS_HUNTING () {
@@ -292,6 +283,9 @@ USEFUL_TOOLS () {
 	echo -e ${BLUE}"[USEFUL TOOLS]" ${RED}"Ripgrep installation in progress ...";
 	apt-get install -y ripgrep > /dev/null 2>&1
 	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"Ripgrep installation is done !" ${RESTORE}; echo "";
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${RED}"Nano installation in progress ...";
+	apt-get install -y nano > /dev/null 2>&1
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"Nano installation is done !" ${RESTORE}; echo "";
 }
 
-ENVIRONMENT && SUBDOMAINS_ENUMERATION && DNS_RESOLVER && VISUAL_RECON && HTTP_PROBE && WEB_CRAWLING && NETWORK_SCANNER && HTTP_PARAMETER && FUZZING_TOOLS && SSRF_TOOLS && API_TOOLS && WORDLISTS && VULNS_XSS && VULNS_SQLI && CMS_SCANNER && VULNS_SCANNER && JS_HUNTING && USEFUL_TOOLS;
+ENVIRONMENT && SUBDOMAINS_ENUMERATION && DNS_RESOLVER && HTTP_PROBE && WEB_CRAWLING && NETWORK_SCANNER && HTTP_PARAMETER && FUZZING_TOOLS && SSRF_TOOLS && WORDLISTS && VULNS_XSS && VULNS_SQLI && CMS_SCANNER && VULNS_SCANNER && JS_HUNTING && USEFUL_TOOLS;
