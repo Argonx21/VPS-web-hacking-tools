@@ -146,6 +146,9 @@ FUZZING_TOOLS () {
 	echo -e ${BLUE}"[FUZZING TOOLS]" ${RED}"Gobuster installation in progress ...";
 	go install github.com/OJ/gobuster/v3@latest > /dev/null 2>&1 && ln -s ~/go/bin/gobuster /usr/local/bin/;
 	echo -e ${BLUE}"[FUZZING TOOLS]" ${GREEN}"Gobuster installation is done !"; echo "";
+	echo -e ${BLUE}"[FUZZING TOOLS]" ${RED}"Dirsearch installation in progress ...";
+	pip3 install dirsearch > /dev/null 2>&1
+	echo -e ${BLUE}"[FUZZING TOOLS]" ${GREEN}"Dirsearch installation is done !"; echo "";
 }
 
 SSRF_TOOLS () {
