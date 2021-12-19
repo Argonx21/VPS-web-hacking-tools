@@ -38,6 +38,7 @@ unset OS
 	echo -e ${BLUE}"[ENVIRONMENT]" ${RED}"Golang environment installation in progress ...";
 	cd /tmp && wget https://go.dev/dl/go1.17.5.linux-amd64.tar.gz > /dev/null 2>&1 && tar xvf go1.17.5.linux-amd64.tar.gz > /dev/null 2>&1 && mv go /usr/local && echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc && source ~/.bashrc;
 	echo -e ${BLUE}"[ENVIRONMENT]" ${GREEN}"Golang environment installation is done !"; echo "";
+	source ~/.bashrc
 }
 
 SUBDOMAINS_ENUMERATION () {
@@ -291,5 +292,4 @@ USEFUL_TOOLS () {
 	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"Nano installation is done !" ${RESTORE}; echo "";
 }
 
-ENVIRONMENT;
-#&& SUBDOMAINS_ENUMERATION && DNS_RESOLVER && HTTP_PROBE && WEB_CRAWLING && NETWORK_SCANNER && HTTP_PARAMETER && FUZZING_TOOLS && SSRF_TOOLS && WORDLISTS && VULNS_XSS && VULNS_SQLI && CMS_SCANNER && VULNS_SCANNER && JS_HUNTING && USEFUL_TOOLS;
+ENVIRONMENT && SUBDOMAINS_ENUMERATION;#&& DNS_RESOLVER && HTTP_PROBE && WEB_CRAWLING && NETWORK_SCANNER && HTTP_PARAMETER && FUZZING_TOOLS && SSRF_TOOLS && WORDLISTS && VULNS_XSS && VULNS_SQLI && CMS_SCANNER && VULNS_SCANNER && JS_HUNTING && USEFUL_TOOLS;
